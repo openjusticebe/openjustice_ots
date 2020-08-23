@@ -1,0 +1,15 @@
+{
+  "name": "openjustice_ots",
+  "version": "1.0.0",
+  "description": "Technical specification for OpenJustice.be",
+  "main": "index.js",
+  "author": "Pieterjan Montens",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+    }
+}
