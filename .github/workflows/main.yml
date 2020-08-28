@@ -15,5 +15,5 @@ jobs:
         uses: rreichel3/vuepress-github-actions-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BUILD_DIR: test/build/
+          BUILD_DIR: docs/.vuepress/dist/
           BUILD_SCRIPT: npm install && npm run-script docs:build
