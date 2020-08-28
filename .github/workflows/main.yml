@@ -4,16 +4,16 @@ on:
   push:
     branches: [ master ]
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build and Deploy
-        uses: rreichel3/vuepress-github-actions-deploy@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BUILD_DIR: docs/.vuepress/dist/
-          BUILD_SCRIPT: npm install && npm run-script docs:build
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+# 
+#     steps:
+#       - uses: actions/checkout@v2
+# 
+#       - name: Build and Deploy
+#         uses: rreichel3/vuepress-github-actions-deploy@master
+#         env:
+#           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#           BUILD_DIR: docs/.vuepress/dist/
+#           BUILD_SCRIPT: npm install && npm run-script docs:build
