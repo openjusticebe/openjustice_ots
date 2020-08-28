@@ -1,14 +1,6 @@
----
-home: true
-heroText: OpenJustice.be
-tagline: Open Technical Specification
-sidebar: auto
-tags:
-    - introduction
-    - help
----
-
 # OpenJustice.be
+Open Technical Specification
+![Image](hero.png)
 ::: warning Information
 - :construction: Under Redaction, v0.1 :construction:
 - Created on: 08/2020
@@ -16,46 +8,58 @@ tags:
 - Author: Pieterjan Montens
 :::
 
+On this page:
 [[toc]]
 
 ## Introduction
 
-This document contains the technical specification for the OpenJustice.be platform, a tool used to collect and publish belgian court decisions in an open, free, neutral, robust, secure and respectful manner.
+This document contains the technical specification for the [OpenJustice.be](https://openjustice.be) platform, a tool used to collect and publish belgian court decisions in an open, free, neutral, robust, secure and respectful manner.
 
-## Goal
-This Open Technical Specification details the different components needed to create a court decision collecting and publishing service, and the interactions between these components. 
+We know the problem before us is complex: this is why OpenJustice.be intends to use known development approaches (iterative development, user-centricity, lean and agile methods) to, progressively, experiment and discover the best possible solution available under current circumstances. 
+
+### Goal
+This Open Technical Specification details the different components needed to create a court decision collecting and publishing service, and the interactions between these [components](/components/#overview). 
 
 On a high level, these components are:
-- the **upload interface** : web gui allowing users to upload files, in interaction with the upload API's:
-    - **text extractor** : web service responsible for extracting text (and basic styling) for files in a diversity of formats
-    - **metadata parser** : web service which will and enrich the metadata for the provided document, be it by text mining or by the use of external data sources
-    - **anonymiser** : web service capable of censoring or pseudonymising textual content, be it through patterns, machine learning or any other open source or commercial service
-    - **indexer** : web service which will start the indexation of the provided text
-- a **backoffice** : web gui allowing users who uploaded content to modify, update or remove published content. This interface will interact will mostly use the same API's as the upload interface.
-- the **upload/backoffice API** : API allowing for scripted and automated upload, update and deletion of contents 
-- the **search/publication interface** : user-orientend web gui allowing users to search, access, share, read, and download published content in multiple available formats. This service will depend on :
-    - a **full-text search index**, in the likes of Solr or Elasticsearch
-    - a **document publication service**, allowing publication of text documents in multiple formats, easily crawlable and documented. This service will offer a completely open and documented API, including Open Source clients in a selection of programming languages
+- An document uploading interface, allowing users to extract and anonymise uploaded documents before indexing
+- A central text indexing service
+- A document publishing service with an open and documented API
+- An ergonomic, robust and efficient search interface
 
-Besides the functional description of these components, the Open Technical Specifiction is accompanied by :
-
-- An infrastructural scaffolding (to be developed) allowing robust and reliant communication between components. In terms of functionality, this scaffolding acts as a **message broker**
-- An **open source software library** (to be developed) containing the needed functionality to plug into the message broker
+The components plug into provided infrastructure responsible for communication between components (the [broker](/broker/)), which can be done by using OpenJustice.be provided software libraries.
 
 ::: warning Important
 This document is subject to evolution, and may be partialy or completely revised during the iterative development of the service.
 :::
 
-### Software stack
-The software backend is to be written in Python3. Currently considered framework for the Frontend is React.
+### Out of scope
+Aspects of the service which are not documented here, which have to be solved separately :
+- hosting
+- storage
+- backup
+- high service availibility
 
-### Non-Goals
 
-### Future Goals
+### Future goals
+- API for automated upload and management of content
+- Automated agents
+- High operational security
 
 ### Assumptions
+For the service to work, this specification assumes:
+- Users willing to upload, verify and validate content they have legal access to
+- The publication of court decisions in Belgium probably won't be ready by september 1st, 2021
 
-### How to edit
+### Existing technology, inspirations
+- Current [test benches](https://anon-ui.openjustice.be/) implemented by OpenJustice.be have allowed to explore and implement text extraction, anonymisation and pseudonymisation technologies
+- Open-Source software packages such as [ElasticSearch](https://www.elastic.co/) and [Solr](https://lucene.apache.org/solr/) provide highly reliable, scalable and fault tolerant indexing, powering the search and navigation features of many of the world's largest internet sites
+- Open-Source highly performant and reliable message brokering software such as [Kafka](https://kafka.apache.org/) or [RabbitMQ](https://www.rabbitmq.com/) allow for high-scale, high-availibility software services to be extremely modular, scalable and updatable
+
+## Software stack
+The software backend is to be written in Python, though the modular architecture of the service allows for other software stacks to integrate should the need arise. Currently considered framework for the Frontend is React. The application is intended to be heavily containerized and configureable.
+
+
+## How to edit
 The documentation is [hosted on github](https://github.com/openjusticebe/openjustice_ots), built on [VuePress](https://vuepress.vuejs.org/guide/#how-it-works), and hosted through docker on our server: [https://spec.openjustice.be](https://spec.openjustice.be)
 
 ::: tip
@@ -63,40 +67,24 @@ VuePress is, just like Docsify or Gitbook, a static site generator who parses Ma
 :::
 
 ## Glossary
-- message broker
-- software library
-- api
-- gui
-- metadata
-- anonymisation
-- pseudonymisation
+message broker
+: A message broker is an architectural pattern for message validation, transformation, and routing. It mediates communication among applications, minimizing the mutual awareness that applications should have of each other in order to be able to exchange messages, effectively implementing decoupling ([Wikipedia](https://en.wikipedia.org/wiki/Message_broker))
 
-## Component definitions
+software library
+: Collection of implementations provided for use and reuse by multiple independent programs, allowing easy integration of standard functionality without having to re-implement said functionality.
 
-### [gui] Upload Interface
+api
+: Application Programming Interface, a way for computer applications to exchange information by interrogation and response
 
-### [api] Text extractor
+gui
+: Graphical User Interface, allowing users to interact with the service
 
-### [api] metadata
+anonymisation
+: Removal or censoring of personal data
 
-### [api] anonymiser
+pseudonymisation
+: Replacement of personal data by pseudonyms in a way the logical link between occurences remains, without exposing the real identity of the person or organisation.
 
-### [api] indexer
-
-### [gui] Backoffice
-
-### [api] upload/backoffice
-
-### [gui] Search/Publication
-
-### [api] Text search
-
-### [api] Document publishing service
-
-## OpenJustice components
-### Message Broker
-
-### OpenJustice Library
 
 
 
