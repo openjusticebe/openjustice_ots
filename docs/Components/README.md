@@ -16,7 +16,7 @@ Besides the functional description of these components, the Open Technical Speci
 - An **open source software library** (to be developed) containing the needed functionality to plug into the message broker
 
 ### Not yet considered
-- the **upload/backoffice API** : API allowing for scripted and automated upload, update and deletion of contents 
+- the **upload/backoffice API** : API allowing for scripted and automated upload, update and deletion of contents
 - **Automated agents** to verify, check and handle possible exposure of personal data.
 - **Automated protection rules** to detect and counter eventual adverse activity
 
@@ -26,7 +26,7 @@ Each component has to satisfy following deployment and security requirements :
 - deployable in single and multiple instances in a docker environment
 - work in complete isolation from each other, using only documentend paths and protocols to exchange information
 - components can be stopped, rebooted and redeployed without loss of information or side effects
-- the components don't store or otherwise persiste data outside of documented and planned protocols
+- the components don't store or otherwise persist data outside of documented and planned protocols
 - components are tested on functionality, regression and errors, and coding standards are enforced
 - ...
 
