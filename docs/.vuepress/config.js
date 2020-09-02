@@ -13,6 +13,11 @@ module.exports = {
             'collapsable': false
         },
         '/License/',
+        {
+            'title': 'Code of Conduct',
+            'path': '/CodeOfConduct/',
+            'collapsable': false
+        },
         '/Components/',
         {
             'title': 'Broker',

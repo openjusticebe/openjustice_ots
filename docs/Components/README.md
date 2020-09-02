@@ -20,7 +20,25 @@ Besides the functional description of these components, the Open Technical Speci
 - **Automated agents** to verify, check and handle possible exposure of personal data.
 - **Automated protection rules** to detect and counter eventual adverse activity
 
+
+## General considerations
+Each component has to satisfy following deployment and security requirements :
+- deployable in single and multiple instances in a docker environment
+- work in complete isolation from each other, using only documentend paths and protocols to exchange information
+- components can be stopped, rebooted and redeployed without loss of information or side effects
+- the components don't store or otherwise persiste data outside of documented and planned protocols
+- components are tested on functionality, regression and errors, and coding standards are enforced
+- ...
+
+> Make it work, then make it beautiful, then if you really, really have to, make it fast.
+> Joe Armstrong
+
 ## [gui] Upload Interface
+### Role
+### Requirements
+### Specifics
+### Scaling
+### Input / Output
 
 ## [api] Text extractor
 
