@@ -14,6 +14,11 @@ module.exports = {
         },
         '/License/',
         {
+            'title': 'GDPR and privacy',
+            'path': '/GDPR/',
+            'collapsable': false
+        },
+        {
             'title': 'Code of Conduct',
             'path': '/CodeOfConduct/',
             'collapsable': false
