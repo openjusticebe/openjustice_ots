@@ -10,7 +10,7 @@
     - a **full-text search index**, in the likes of Solr or Elasticsearch
     - a **document publication service**, allowing publication of text documents in multiple formats, easily crawlable and documented. This service will offer a completely open and documented API, including Open Source clients in a selection of programming languages
 
-Besides the functional description of these components, the Open Technical Specifiction is accompanied by :
+Besides the functional description of these components, the Open Technical Specification is accompanied by :
 
 - An infrastructural scaffolding (to be developed) allowing robust and reliant communication between components. In terms of functionality, this scaffolding acts as a **message broker**
 - An **open source software library** (to be developed) containing the needed functionality to plug into the message broker
@@ -24,7 +24,7 @@ Besides the functional description of these components, the Open Technical Speci
 ## General considerations
 Each component has to satisfy following deployment and security requirements :
 - deployable in single and multiple instances in a docker environment
-- work in complete isolation from each other, using only documentend paths and protocols to exchange information
+- work in complete isolation from each other, using only documented paths and protocols to exchange information
 - components can be stopped, rebooted and redeployed without loss of information or side effects
 - the components don't store or otherwise persist data outside of documented and planned protocols
 - components are tested on functionality, regression and errors, and coding standards are enforced
@@ -35,10 +35,33 @@ Each component has to satisfy following deployment and security requirements :
 
 ## [gui] Upload Interface
 ### Role
+Allows users to upload court decisions files. By integrating with other modules, the text is extracted from the files, and can be formatted by the user. The interface assists the user in the removal of protected data, and lets the user publish the document.
+
 ### Requirements
-### Specifics
-### Scaling
-### Input / Output
+#### Functional
+- File uploading
+- Formatting of extracted text
+- Assisted removal of protected data
+- Review changes and end result before publishing the texts
+#### Integration
+##### Input
+- Browser
+##### Output
+- Texts published by the user are sent to the internal message broker on the relevant "topic"
+##### Backend
+- access to user profile service (http)
+- access to text extraction API (http)
+- access to text anonymisation, pseudonymisation API (http)
+- access to text pub
+#### Specific
+- The uploading process must be well explained and understood by the user, proper ergonomics have to be studied and implemented.
+- Preferably static / client-rendered, software stacks like React or Vue
+### Misc
+- All server interactions, except user login/logout, are stateless : no information is saved during this process until proper publishing by the user
+- all communication with the server must be encrypted (https)
+- no third-party tracking or analytics code, some analytics may be added by OpenJustice but only with the intent to improve design, ergonomics and overall user satisfaction.
+
+
 
 ## [api] Text extractor
 
