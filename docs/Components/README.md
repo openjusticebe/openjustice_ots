@@ -85,3 +85,5 @@ Allows users to upload court decisions files. By integrating with other modules,
 ## Message Broker
 
 ## OpenJustice Library
+
+## User profile management
