@@ -1,4 +1,19 @@
 module.exports = {
+  plugins: [
+    'flowchart',
+    'vuepress-plugin-mermaidjs',
+    'vuepress-plugin-smooth-scroll',
+    'vuepress-plugin-graphviz',
+    [
+      'vuepress-plugin-mathjax',
+      {
+        target: 'svg',
+        macros: {
+          '*': '\\times',
+        },
+      },
+    ],
+  ],
   themeConfig: {
     home: true,
     heroText: 'Poulet OpenJustice.be',
@@ -34,6 +49,11 @@ module.exports = {
             'path': '/EndMatter/',
             'collapsable': false
         },
+        {
+            'title': 'Demonstration',
+            'path': '/Demonstration/',
+            'collapsable': false
+        },
     ]
   },
   markdown: {
@@ -43,5 +63,5 @@ module.exports = {
     extendMarkdown: md => {
       md.use(require('markdown-it-deflist'))
     }
-  }
+  },
 }
