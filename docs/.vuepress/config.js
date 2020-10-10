@@ -27,17 +27,13 @@ module.exports = {
             'path': '/',
             'collapsable': false
         },
-        '/License/',
         {
             'title': 'GDPR and privacy',
             'path': '/GDPR/',
             'collapsable': false
         },
-        {
-            'title': 'Code of Conduct',
-            'path': '/CodeOfConduct/',
-            'collapsable': false
-        },
+        '/Users/',
+        '/Functionalities/',
         '/Components/',
         {
             'title': 'Broker',
@@ -45,13 +41,19 @@ module.exports = {
             'collapsable': false
         },
         {
-            'title': 'End Matter',
-            'path': '/EndMatter/',
+            'title': 'Code of Conduct',
+            'path': '/CodeOfConduct/',
             'collapsable': false
         },
         {
             'title': 'Demonstration',
             'path': '/Demonstration/',
+            'collapsable': false
+        },
+        '/License/',
+        {
+            'title': 'End Matter',
+            'path': '/EndMatter/',
             'collapsable': false
         },
     ]

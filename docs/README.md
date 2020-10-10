@@ -2,10 +2,9 @@
 Open Technical Specification
 ![Image](hero.png)
 ::: warning Information
-- :construction: Under Redaction, v0.1 :construction:
+- :construction: Under Redaction, v0.2 :construction:
 - Created on: 08/2020
-- Last Update: 28/08/2020
-- Author: Pieterjan Montens
+- Last Update: 10/10/2020
 :::
 
 On this page:
@@ -13,20 +12,40 @@ On this page:
 
 ## Introduction
 
-This document contains the technical specification for the [OpenJustice.be](https://openjustice.be) platform, a tool used to collect and publish belgian court decisions in an open, free, neutral, robust, secure and respectful manner.
+This document contains the open technical specification for the [OpenJustice.be](https://openjustice.be) platform, a tool used to collect and publish belgian court decisions in an open, free, neutral, robust, secure and respectful manner.
 
-We know the problem before us is complex: this is why OpenJustice.be intends to use known development approaches (iterative development, user-centricity, lean and agile methods) to, progressively, experiment and discover the best possible solution available under current circumstances. 
+We know the problem before us is complex: this is why OpenJustice.be intends to use known development approaches (iterative development, user-centricity, lean and agile methods) to experiment and discover the best possible solutions available under current circumstances. 
 
 ### Goal
-This Open Technical Specification details the different components needed to create a court decision collecting and publishing service, and the interactions between these [components](/components/#overview). 
+This Open Technical Specification details [users](/users/#overview), [functionalities](/functionalities/#overview) and [components](/components/#overview) needed to create a court decision collecting and publishing service. 
 
-On a high level, these components are:
-- An document uploading interface, allowing users to extract and anonymise uploaded documents before indexing
-- A central text indexing service
-- A document publishing service with an open and documented API
-- An ergonomic, robust and efficient search interface
+On a high level, these are:
+#### Users
+- The public : access and information
+- Law professionals : access, information, collabore, share
+- Technical users : collabore, build, experiment, research
 
-The components plug into provided infrastructure responsible for communication between components (the [broker](/broker/)), which can be done by using OpenJustice.be provided software libraries.
+#### Functionalities
+- Profile management
+- Text upload, extraction, anonymisation
+- Document indexing
+- Document search
+- Document access (read, navigate, ...)
+- API access (navigation)
+- Data Quality & Privacy control points (Peer reviews, notification, boosts, ...)
+- Collaboration
+
+#### Components
+- User interface frontoffice (main interface)
+- User interface backoffice (uploading documents)
+- Authentication module
+- Anonymisation API
+- Text extraction API
+- Search platform (specialized full-text search database)
+- SQL Database
+- Service API
+
+Most components plug into provided infrastructure responsible for communication between components (the [broker](/broker/)), which can be done by using OpenJustice.be provided software libraries.
 
 ::: warning Important
 This document is subject to evolution, and may be partialy or completely revised during the iterative development of the service.
@@ -44,6 +63,7 @@ Aspects of the service which are not documented here, which have to be solved se
 - API for automated upload and management of content
 - Automated agents
 - High operational security
+- Enhanced collaboration functionalities (annotation, compilation, ...)
 
 ### Assumptions
 For the service to work, this specification assumes:
@@ -65,6 +85,8 @@ The documentation is [hosted on github](https://github.com/openjusticebe/openjus
 ::: tip
 VuePress is, just like Docsify or Gitbook, a static site generator who parses MarkDown files and a documentation-oriented theme to render static documentation websites, such as this one
 :::
+
+Advanced text formatting (diagrams, UML, flowcharts, math expressions) are possible : check the [demonstration](/demonstration) page.
 
 ## Glossary
 message broker
