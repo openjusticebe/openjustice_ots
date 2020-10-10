@@ -36,6 +36,11 @@ module.exports = {
         '/Functionalities/',
         '/Components/',
         {
+            'title': 'Database Schemas',
+            'path': '/DataSchemas/',
+            'collapsable': false
+        },
+        {
             'title': 'Broker',
             'path': '/Broker/',
             'collapsable': false
