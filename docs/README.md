@@ -2,7 +2,7 @@
 Open Technical Specification
 ![Image](hero.png)
 ::: warning Information
-- :construction: Under Redaction, v0.2 :construction:
+- :construction: Under Redaction, v0.3 :construction:
 - Created on: 08/2020
 - Last Update: 10/10/2020
 :::
